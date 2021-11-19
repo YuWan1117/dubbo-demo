@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: hello-admin
+  profiles:
+    active: local
+
+management:
+  server:
+    port: 9321
+  endpoints:
+    health:
+      show-details: "always"
+    web:
+      base-path: /
+    exposure:
+      include: "*"
+
+logging:
+  config: classpath:log4j.properties
+
+server:
+  port: 9321
+
+dubbo:
+  application:
+    name: hello-admin
+    qos-enable: false
+    logger: slf4j
+#    service-discovery:
+#      migration: FORCE_APPLICATION
+  protocol:
+    name: tri # 协议名
+    port: 20416 # 协议端口号
+    threads: 500  # 工作线程数
+  registry:
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+#    parameters:
+#      register-type: service
+  config:
+    multiple: false
+  consumer:
+    timeout: 2000
+    check: false
+    cluster: failfast

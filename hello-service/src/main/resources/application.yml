@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: hello-service
+  profiles:
+    active: local
+
+management:
+  server:
+    port: 9322
+  endpoints:
+    health:
+      show-details: "always"
+    web:
+      base-path: /
+    exposure:
+      include: "*"
+
+logging:
+  config: classpath:log4j.properties
+
+server:
+  port: 9322
+
+dubbo:
+  application:
+    name: hello-service
+    qos-enable: false
+    logger: slf4j
+#    register-mode: instance
+  protocol:
+    name: tri # 协议名
+    port: 20415 # 协议端口号
+    threads: 500  # 工作线程数
+  registry:
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+#    parameters:
+#      register-type: service
+  scan:
+    base-packages: org.example.hello.service
+  config:
+    multiple: false
+  consumer:
+    timeout: 2000
+    check: false
+    cluster: failfast
