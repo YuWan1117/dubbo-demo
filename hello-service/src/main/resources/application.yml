@@ -26,15 +26,10 @@ dubbo:
     name: hello-service
     qos-enable: false
     logger: slf4j
-  protocols:
-    tri:
-      name: tri # 协议名
-      port: 20415 # 协议端口号
-      threads: 500  # 工作线程数
-    dubbo:
-      name: dubbo # 协议名
-      port: 20880 # 协议端口号
-      threads: 500  # 工作线程数
+  protocol:
+    name: dubbo # 协议名
+    port: 20880 # 协议端口号
+    threads: 500  # 工作线程数
   registry:
     address: 127.0.0.1:2181
     protocol: zookeeper

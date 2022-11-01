@@ -1,10 +1,10 @@
 package org.example.hello.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.dubbo.config.annotation.DubboService;
+import org.apache.dubbo.config.annotation.Service;
 import org.apache.dubbo.rpc.RpcContext;
 
-@DubboService
+@Service
 @Slf4j
 public class DemoServiceImpl implements DemoService {
 
@@ -16,7 +16,7 @@ public class DemoServiceImpl implements DemoService {
         log.info("call sayHello function");
         return "Hello World."
                 + ", ip=" + RpcContext.getServerContext().getLocalHost()
-                + ", providerUrl=" + RpcContext.getServerAttachment().getUrl();
+                + ", providerUrl=" + RpcContext.getContext().getUrl();
     }
 
     /**
@@ -27,7 +27,7 @@ public class DemoServiceImpl implements DemoService {
         log.info("call sayHelloToSomeone function, name={}", name);
         return "Hello, " + name
                 + "， ip=" + RpcContext.getServerContext().getLocalHost()
-                + ", providerUrl=" + RpcContext.getServerAttachment().getUrl();
+                + ", providerUrl=" + RpcContext.getContext().getUrl();
     }
 
 }
