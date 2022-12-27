@@ -1,19 +1,24 @@
 
-Dubbo 3.0.7 Demo
+# Dubbo Demo
+
+---------------------------------
+
+## [Issue 11208](https://github.com/apache/dubbo/issues/11208)
 
 ### 前言
+- 基于3.1.4版本使用triple协议、ZK注册中心
 - provider 即 hello-service模块
 - consumer 即 hello-admin模块
 
 ### 问题描述
-
+具体描述查看[Issue 11208](https://github.com/apache/dubbo/issues/11208)即可
 
 ---------------------------------
 
-## Dubbo 3.0.0 Demo
+## [Issue 9295](https://github.com/apache/dubbo/issues/9295) 
 
 ### 前言
-- 基于3.0.0版本使用triple协议、ZK注册中心
+- 基于3.0版本使用dubbo协议、ZK注册中心
 - provider 即 hello-service模块
 - consumer 即 hello-admin模块
 
