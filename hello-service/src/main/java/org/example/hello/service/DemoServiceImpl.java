@@ -13,10 +13,13 @@ public class DemoServiceImpl implements DemoService {
      */
     @Override
     public String sayHello() {
-        log.info("call sayHello function");
+        log.info("call sayHello function, TestKey={} testkey={}",
+                RpcContext.getServerAttachment().getAttachment("TestKey"),
+                RpcContext.getServerAttachment().getAttachment("testkey"));
         return "Hello World."
                 + ", ip=" + RpcContext.getServerContext().getLocalHost()
-                + ", providerUrl=" + RpcContext.getContext().getUrl();
+                + ", providerUrl=" + RpcContext.getServerContext().getUrl()
+                + ", TestKey=" + RpcContext.getServerContext().getAttachment("TestKey");
     }
 
     /**
@@ -24,10 +27,13 @@ public class DemoServiceImpl implements DemoService {
      */
     @Override
     public String sayHelloToSomeone(String name) {
-        log.info("call sayHelloToSomeone function, name={}", name);
+        log.info("call sayHelloToSomeone function, name={} TestKey={} testkey={}", name,
+                RpcContext.getServerAttachment().getAttachment("TestKey"),
+                RpcContext.getServerAttachment().getAttachment("testkey"));
         return "Hello, " + name
                 + "， ip=" + RpcContext.getServerContext().getLocalHost()
-                + ", providerUrl=" + RpcContext.getContext().getUrl();
+                + ", providerUrl=" + RpcContext.getServerContext().getUrl()
+                + ", TestKey=" + RpcContext.getServerContext().getAttachment("TestKey");
     }
 
 }

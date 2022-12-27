@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class DubboConfigurations {
 
 //    @DubboReference(providedBy = "hello-service", protocol = CommonConstants.TRIPLE)
-    @DubboReference
+    @DubboReference(filter = "consumerFilter")
     private DemoService demoService;
 
     @Bean
