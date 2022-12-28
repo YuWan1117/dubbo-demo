@@ -13,6 +13,13 @@
 ### 问题描述
 具体描述查看[Issue 11208](https://github.com/apache/dubbo/issues/11208)即可
 
+### 修复逻辑
+> 在`3.1.4'版本的基础上进行如下两处修复，在本地重新发布一个SNAPSHOT版本进行测试，符合预期。
+
+1. `StreamUtils`的`toAttachments`方法实现缺少`key`值转化【见下图`convertAttachment`方法】
+2. `3.1.4`版本的[commit](https://github.com/apache/dubbo/commit/5fdc88d09e2fb7a6e795822ac9f9ebc4b8669c23)`bug` 【见下图最后一行变更代码】
+![Issue 11208 bugfix](images/issue11208bugfix.png)
+
 ---------------------------------
 
 ## [Issue 9295](https://github.com/apache/dubbo/issues/9295) 
