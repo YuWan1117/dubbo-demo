@@ -45,6 +45,3 @@ provider端register-mode默认为all，服务启动后consumer
 
 最终解决方案
 > 对项目中使用的dubbo版本升级至3.0.4
-
-[对应issue链接](https://github.com/apache/dubbo/issues/9295)
-

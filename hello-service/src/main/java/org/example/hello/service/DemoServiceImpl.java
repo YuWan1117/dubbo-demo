@@ -14,12 +14,16 @@ public class DemoServiceImpl implements DemoService {
     @Override
     public String sayHello() {
         log.info("call sayHello function, TestKey={} testkey={}",
-                RpcContext.getServerAttachment().getAttachment("TestKey"),
-                RpcContext.getServerAttachment().getAttachment("testkey"));
-        return "Hello World."
-                + ", ip=" + RpcContext.getServerContext().getLocalHost()
-                + ", providerUrl=" + RpcContext.getServerContext().getUrl()
-                + ", TestKey=" + RpcContext.getServerContext().getAttachment("TestKey");
+                RpcContext.getServiceContext().getAttachment("TestKey"),
+                RpcContext.getServiceContext().getAttachment("testkey"));
+
+        String result = "Hello World."
+                + ", ip=" + RpcContext.getServiceContext().getLocalHost()
+                + ", providerUrl=" + RpcContext.getServiceContext().getUrl()
+                + ", TestKey=" + RpcContext.getServiceContext().getAttachment("TestKey");
+
+        RpcContext.getServerContext().setAttachment("TestKey", "ServerTestValue");
+        return result;
     }
 
     /**
